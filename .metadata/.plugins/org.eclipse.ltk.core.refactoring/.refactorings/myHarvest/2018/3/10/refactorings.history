@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;myHarvest/validate&apos; to &apos;validate.php&apos;" description="Rename resource &apos;validate&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="validate" name="validate.php" stamp="1520694170231" updateReferences="true"/>
+</session>

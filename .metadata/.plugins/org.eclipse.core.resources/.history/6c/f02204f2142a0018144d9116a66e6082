@@ -1,0 +1,45 @@
+<?php
+session_start();
+$servername = "localhost";
+$username = "admin";
+$password = "MyNewPass";
+
+// Create connection
+$conn = mysqli_connect("localhost", "admin", "password", "myHarvest");
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+echo "Connected successfully";
+
+if(isset($_POST["username"], $_POST["password"]))
+{
+    
+    $USERS = $_POST["username"];
+    $password = $_POST["password"];
+    
+    $result1 = mysqli_connect("localhost", "admin", "password", "myHarvest");
+    ("SELECT username, password FROM AUTHORIZED_USERS WHERE USERNAME = '".$USERS."' AND  password = '".$password."'");
+    
+    if(mysqli_num_rows($result1) > 0)
+    {
+        $_SESSION["logged"] = true;
+        $_SESSION["naam"] = $username;
+    }
+    else
+    {
+        echo 'The username or password are incorrect!';
+    }
+}
+?>
+
+<?php include "header.php";?>
+
+<body>
+
+<h2>Account Profile</h2><br><br>
+<p><canvas style=height:300px;></canvas>
+
+
+</body>
+<?php include "footer.php";?>

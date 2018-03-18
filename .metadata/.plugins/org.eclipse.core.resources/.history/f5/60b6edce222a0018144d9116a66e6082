@@ -1,0 +1,44 @@
+<?php
+session_start();
+
+function lastInsertId() {
+    global $db_connection;
+    return mysqli_insert_id($db_connection);
+}
+if (isset($_POST['username'], $_POST['password']))
+{
+    
+        $USERS = $_POST["username"];
+        $password = $_POST["password"];
+        
+        $sql = ("SELECT username, password FROM AUTHORIZED_USERS WHERE USERNAME = '".$USERS."' AND password = '".$password."'");
+        $result = mysqli_query($db,$sql);
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        $active = $row['active'];
+        
+        $count = mysqli_num_rows($result);
+        
+        if($count > 0 )
+        {
+            $_SESSION['logged'] = $myusername;
+            header("location: welcome.php");
+        }
+        else
+        {
+            $error = "Your Login Name or Password is invalid";
+
+        }
+}
+?>
+
+
+<?php include "header.php";?>
+
+<body>
+
+<h2>Account Profile</h2><br><br>
+<p><canvas style=height:300px;></canvas>
+
+
+</body>
+<?php include "footer.php";?>

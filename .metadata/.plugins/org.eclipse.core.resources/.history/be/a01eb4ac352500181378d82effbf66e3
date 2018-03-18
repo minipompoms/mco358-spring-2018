@@ -1,0 +1,39 @@
+<?php 
+session_status();
+$USERS["admin"] = "password";
+$USERS["user1"] = "password1";
+$USERS["user2"] = "password2";
+$USERS["user3"] = "password3";
+$user = admin;
+$pass = password;
+
+function check_logged(){
+    global $_SESSION, $USERS;
+    if (!array_key_exists($_SESSION["logged"], $USERS)) {
+        header("Location: login.php");
+    };
+};
+
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    
+    if (($_POST['username'] == $user) && ($_POST['password'] == $pass)) {
+        
+        if (isset($_POST['rememberme'])) {
+            
+            setcookie('username', $_POST['username'], time(86400 * 30), "/");
+            setcookie('password', md5($_POST['password']), time(86400 * 30), "/");
+            
+        } else {
+            
+            setcookie('username', $_POST['username'], false);
+            setcookie('password', md5($_POST['password']), false);
+        }
+        header('Location: index.php');
+    } else {
+        echo 'Username/Password Invalid';
+    }
+    
+} else {
+    echo 'You must supply a username and password.';
+}
+?>

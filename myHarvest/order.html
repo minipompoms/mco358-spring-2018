@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+<head>
+
+<title>Order Form</title>
+
+</head>
+<body >
+
+<form action="submit.php" method="post">
+<img src="MH1.png" alt="My_Harvest"><br><br><hr>
+<p class="c">Order Form </p><div style="text-align:left">
+<div class="sidebar" style="width:12%">
+<aside>
+  <nav>
+  <h2><a href=index.php>Home</a></h2>
+   
+  <br>
+      <a href="giftPlatters.html">Gift Platters</a><br><br>
+      <a href="customOrders.html">Custom Orders</a><br><br>
+      <a href="specialRqst.html">Special Item Request</a><br><br>
+     
+</nav>
+</aside>
+</div>
+<div class="set">
+<fieldset style="margin-right: 10%"><legend><b>ORDER INFO:</b></legend>
+
+<br><br>
+<label for="todaysDate">Select Order Date</label>
+<input type="date" id="todaysDate" value="Order Date" >
+<label for="phone_number">Phone Number<abbr title="required"></abbr></label>
+<input id="phone_number" type="text" name="phone_number" /><br><br>
+<label for="customerName">Customer Name</label>
+<input type="text" name="customerName"/>
+<br><br>
+<label for="deliveryAddress">Delivery Address</label>
+<input style="width:220px" type="text" name="Delivery Address"/>
+<br>
+<input style="margin-left:99px;width:220px" type="text" name="DeliveryAddress2"/><br>
+<br>
+<label style=margin-left:105px; for="city">Brooklyn</label>
+
+<label style=margin-left:42px; for="zip">NY</label>
+<input style= "width: 45px; margin-left:50px;" type="text" name="zip" value="Zip"/>
+<br><br>
+<br><br>
+
+<div class="items">
+<input style=width:45px;padding:1px; type="number" name="quantity" value="amt"/>
+<select style=padding:2px; >
+  <option value="lb(s)">lbs.</option>
+  <option value="piece">piece</option>
+</select>
+<input style=padding:1px;width:50px; type="search" name="itemNumber" value="Item No."/>
+<input style=padding:1px;width:300px; type="text" name="itemDescription" value="Description" />
+</div>
+<br>
+<br>
+
+<p style=margin-left:90px;>Payment Method
+<select style="height:5px; margin-left:10px;" >
+
+  <option value="credit_card">Credit Card</option>
+  <option value="COD">COD</option>
+  <option value="OnAcct">On Account</option> 
+</select></p>
+
+<br><label style=float:right;margin-right:160px for="delivery_box">Check box for Delivery</label>
+<input style=float:right;margin-right:10px; type="checkbox" name="delivery_box" value="Check box for Delivery"/>
+<br><br><textarea name="message" rows="2" cols="50"> Delivery Instructions:</textarea>
+
+<br><p style=text-align:center;><input type="submit" name="submit_button" value="Submit Order"/></p>
+<br>
+</fieldset>
+</div></div>
+
+
+</form>
+</body>
+</html>

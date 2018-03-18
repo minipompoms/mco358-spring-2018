@@ -1,0 +1,32 @@
+<?php
+include "config.inc.php";
+session_start();
+
+// Checks if the user is logged in
+if (isset($_POST['username'], $_POST['password']))
+{
+    if (trim($_POST['username']) == 'admin' && trim($_POST['password']) == 'password')
+    {
+        $_SESSION['username'] = 'admin';
+        
+        // Successful login, send them home!
+        header('Location: /');
+        exit;
+    }
+    else
+    {
+        echo 'Invalid login credentials, try again.';
+    }
+}
+?>
+
+<?php include "header.php";?>
+
+<body>
+
+<h2>Account Profile</h2><br><br>
+<p><canvas style=height:300px;></canvas>
+
+
+</body>
+<?php include "footer.php";?>

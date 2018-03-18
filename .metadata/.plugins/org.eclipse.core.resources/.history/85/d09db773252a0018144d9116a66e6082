@@ -1,0 +1,14 @@
+
+<?php
+ include "header.php";
+?>
+
+<html>
+<title>Welcome</title>
+<body>
+<h3>Welcome...</h3>
+ header("location: welcome.php");
+</body>
+
+<?php include "footer.php"; ?>   
+</html>
