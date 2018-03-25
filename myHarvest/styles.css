@@ -112,9 +112,11 @@ footer {
 }
 
 .set fieldset {
-	margin-left: 20%;
+	margin-left: 15%;
 	background-color: #e6ffee;
 	width: 900px;
+	border: 30px solid #e6ffee;
+	border-radius: 5px;
 }
 
 .set legend {
@@ -168,3 +170,32 @@ textarea {
 	text-align: right;
 	letter-spacing: -1px;
 }
+   #viewCart { 
+        width: 10%; 
+        float: right; 
+        color:#0c2a0f;
+    }
+    #container { 
+  
+
+    color:#0c2a0f;
+} 
+
+ table {
+    border-collapse: collapse; 
+}
+
+th, td {
+    padding: 3px;
+    text-align:left;
+  
+}
+th {
+      
+    font-size: 11px;
+    color: #318131; 
+}
+
+table, thead, tbody, th, td, tr { 
+	 	
+	}

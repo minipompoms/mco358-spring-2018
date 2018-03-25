@@ -22,7 +22,7 @@ if (isset($_POST['username'], $_POST['password']))
     else
     {
         $my_centered_word = 'Invalid login credentials';
-        echo "<div style='text-align:center; color:white;'><h2>$my_centered_word</h2></div>";
+        echo "<div style='text-align:center; color:white; margin-top:100px;'><h2>$my_centered_word</h2></div>";
     }
 }
 ?>
