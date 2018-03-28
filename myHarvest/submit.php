@@ -1,21 +1,17 @@
-
 <!DOCTYPE html>
-<html>   
-       
+<html>          
 <?php 
 include "header.php";
-include "config.php"
+include "config.php";
+
 ?>
 <title>Order Complete!</title>  
        
-<body >
+<body>
 <canvas style=height:30px;></canvas>
 
+<div style=text-align:left;margin-left:520px;padding:24px;></div>
 
-<div style=text-align:left;margin-left:520px;padding:24px;>
-
-</div>
-<div>
 <h2>Order Summary</h2>
 <?php 
 $CUST_NAME = $_POST['cust_name'];
@@ -26,9 +22,7 @@ $CITY = $_POST['city'];
 $STATE = $_POST['state'];
 $ZIP = $_POST['zip'];
 $DELIVERY = $_POST['delivery'];
-$ITEM_DESC = $_POST['item_desc'];
-$ITEM_NO = $_POST['item_no'];
-$PRICE = $_POST['price'];
+
 
 $TOTAL = "44.11";
 
@@ -36,6 +30,8 @@ $TOTAL = "44.11";
 
 mysqli_query($db,"INSERT INTO ORDERS (CUST_TEL, ORDER_DATE, ORDER_TYPE_ID, ORDER_TOTAL,  CUSTOMERS_CUST_ID) 
 VALUES ('$TEL', '$DATE', '$DELIVERY', '$TOTAL',  '$TEL')");
+
+
 
 
 if(mysqli_affected_rows($db)>0){
@@ -55,8 +51,12 @@ else{
 <b>&nbsp;&nbsp;</b><?php echo $CITY ?><br>
 <b>&nbsp;&nbsp;</b><?php echo $STATE ?><br>
 <b>&nbsp;&nbsp;</b><?php echo $ZIP ?><br>
-<br><?php echo $QUANTITY ?><br>
-</div>
+<br><?php echo $qty ?><br>
+<br><?php echo $item_no ?><br>
+<br><?php echo $item_desc ?><br>	
+
+<?php echo $TOTAL?>
+
 
 
 
@@ -68,9 +68,12 @@ else{
 
 <p><canvas style=height:200px;></canvas>
 </body>
+<?php 
 
+?>
 <?php include "footer.php";?>
 <?php 
+
 function check_input($data)
 {
     $data = trim($data);

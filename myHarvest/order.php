@@ -44,6 +44,9 @@ include "header.php";
     } 
   
 ?> 
+<?php 
+
+?>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="styles.css" type="text/css" />
@@ -79,6 +82,8 @@ include "header.php";
  
 				
 <?php  
+$item_desc="";
+$item_no=0;
     if(isset($_SESSION['cart'])){ 
           
         $sql="SELECT * FROM products WHERE ITEM_NO IN ("; 
@@ -88,7 +93,7 @@ include "header.php";
         } 
           
         $sql = "SELECT * FROM products"; 
-   
+        
        
         $query=mysqli_query($db,$sql); 
         while($row=mysqli_fetch_array($query)){ 
@@ -124,8 +129,11 @@ include "header.php";
 						style="margin-left: 39px; width: 220px" type="text" name="address" />
 					<br> <input style="margin-left: 99px; width: 220px" type="text"
 						name="address2" /><br>
-					<br> <label style="margin-left: 105px;" for="city">Brooklyn</label>
-					<label style="margin-left: 45px;" for="state">NY</label> 
+					<br> <label style="margin-left: 105px;" for="city"></label>
+					<input style="margin-left: 105px;" type="text" name="city"></input>
+					
+					<label style="margin-left:45px;" for="state"></label> 
+					<input style="margin-left: 105px;" type="text" name="state"></input>
 					<label style="margin-left: -5px;" for="zip"></label> 
 					<input
 						style="width: 45px; margin-left: 50px;" type="text" name="zip"
@@ -147,23 +155,22 @@ include "header.php";
  
     $sql = "SELECT * FROM products";  
     $result = mysqli_query($db,$sql);
-  
+    $item_desc="";
+    $item_no=0;
     while ($row = mysqli_fetch_array($result)){
         ?>
-				
-        		<!-- <tr><td><input type="text" name="qty[<?php echo $row['ITEM_NO'] ?>]" size="4" value="<?php echo $_SESSION['cart'][$row['ITEM_NO']]['qty'] ?>" /></td> --> 
-        			<tr>	 <td ><?php echo $row['ITEM_NO'] ?></td> <td>      			
-               <td><?php echo $row['ITEM_DESC'] ?></td><td>
-                <td><?php echo $row['ITEM_WEIGHT'] ?></td> <td>
-                <td><?php echo $row['ITEM_PRICE'] ?></td><td>
+      
+        		<tr><td><input type="text" name="qty[<?php echo $row['ITEM_NO'] ?>]" size="4" value="<?php echo $_SESSION['cart'][$row['ITEM_NO']]['qty'] ?>" /></td>
+       			 <td><?php $item_no = $row['ITEM_NO']; echo $item_no."<br />";  ?></td><td>
+        		
+               			
+               <td><?php $item_desc = $row['ITEM_DESC']; echo $item_desc."<br />";  ?></td><td>
+                <td><?php $weight = $row["ITEM_WEIGHT"]; echo $weight."<br />";?></td> <td>
+                <td><?php $price = $row["price"]; echo $price ?></td><td>
                 <td><a href="order.php?page=cart&action=add&id=<?php echo $row['ITEM_NO'] ?>"><img src="cart.png"></a> </td> 
                 </tr>
-                <?php 
-                
-    }
-    
-  
- 
+                <?php      }
+               
             ?>
           
  		
@@ -187,7 +194,13 @@ include "header.php";
 					<br>
 					<textarea name="message" rows="2" cols="50"> Delivery Instructions:</textarea>
 					<br>
+					
+					<?php
+					
+					
+					?>
 					<p style="text-align: center;">
+					
 						<input type="submit" name="submit_button" value="Review Order" />
 					</p>
 					<br>

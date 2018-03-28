@@ -33,11 +33,6 @@ if(isset($_POST['submit'])){
           
         <?php 
           
-            $sql="SELECT * FROM products";
-                                 
-            foreach($_SESSION['cart'] as $id => $value) {
-                $sql.=$id.",";
-            }
             
             $sql = "SELECT * FROM products";
             
