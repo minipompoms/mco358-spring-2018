@@ -1,0 +1,29 @@
+<?php
+include "config.php";
+
+$conn = new mysqli("127.0.0.1", "admin", "password");
+if($conn->connect_errno){
+    echo "DB connection failed. ".$conn->connect_error;
+}
+
+$USERNAME = "NKOHN";
+$PASSWORD = "nkpass";
+$CUSTOMER_ID = "7187445278";
+
+$sql = "INSERT INTO AUTHORIZED_USERS(USERNAME, PASSWORD) 
+VALUES(?. ?)";
+
+$stmt = $conn->prepare($sql);
+
+if($conn->query($sql)=== true){
+    echo "record created successfully";
+}
+    else{
+        
+    echo "error: ".$conn->error;
+   
+}
+
+$conn->close();
+
+?>

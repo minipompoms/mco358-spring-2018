@@ -1,0 +1,25 @@
+<?php
+include "config.php";
+
+if($db->connect_errno){
+    echo "DB connection failed. ".$db->connect_error;
+}
+
+$USERNAME = "NKOHN";
+$PASSWORD = "nkpass";
+$CUSTOMER_ID = "7187445278";
+
+$sql = "INSERT INTO AUTHORIZED_USERS(USERNAME, PASSWORD, CUSTOMER_ID) 
+VALUES(?. ?. ?)";
+
+$stmt = $db->prepare($sql);
+
+if(!stmt){
+    echo 'error: '.$db->error;
+}
+$stmt->bind_param('ssi'.$USERNAME.$PASSWORD.$CUSTOMER_ID);
+$stmt->execute();
+echo $stmt->insert_id;
+$stmt->close();
+
+?>

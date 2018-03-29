@@ -1,0 +1,21 @@
+
+
+<?php
+   define('DB_SERVER', '127.0.0.1');
+   define('DB_USERNAME', 'admin');
+   define('DB_PASSWORD', 'password');
+   define('DB_DATABASE', 'tutorials');
+   
+   $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+
+   
+   
+   
+   mysqli_connect($server, $user, $pass) or die("Sorry, can't connect to the mysql.");
+   
+ 
+   
+   mysql_select_db($db) or die("Sorry, can't select the database.");
+   
+
+?>

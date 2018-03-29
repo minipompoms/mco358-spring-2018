@@ -27,13 +27,13 @@ $STATE = $_POST['state'];
 $ZIP = $_POST['zip'];
 $DELIVERY = $_POST['delivery'];
 
-
+$TOTAL = "0.00";
 
 mysqli_query($db, "INSERT INTO ORDERS (CUST_TEL, ORDER_DATE, ORDER_TYPE_ID, ORDER_TOTAL,  CUSTOMERS_CUST_ID) 
-VALUES ('$TEL', '$DATE', '$DELIVERY', '$total',  '$TEL')");
+VALUES ('$TEL', '$DATE', '$DELIVERY', '$TOTAL',  '$TEL')");
 
 $orderid = mysqli_insert_id($db);
-echo $orderid;
+
 if (mysqli_affected_rows($db) > 0) {
     mysqli_affected_rows($db);
 } else {
@@ -41,7 +41,7 @@ if (mysqli_affected_rows($db) > 0) {
     echo mysqli_error($db);
 }
 ?>
-
+<b>ORDER ID:&nbsp;&nbsp;</b><?php echo $orderid ?><br>
 <b>DATE:&nbsp;&nbsp;</b><?php echo $DATE ?><br>
 	<b>NAME:&nbsp;&nbsp;</b><?php echo $CUST_NAME ?><br>
 	<br>
@@ -61,32 +61,32 @@ if (mysqli_affected_rows($db) > 0) {
 foreach ($_POST['qty'] as $itemNo=>$itemQty) {
     if (! ($itemQty == 0 || $itemQty== "")) {
         
-        
+     
         $sql = "SELECT * FROM products WHERE ITEM_NO = $itemNo";
         $result = mysqli_query($db, $sql);
         
         if ($row = mysqli_fetch_array($result)) {
-            echo $itemQty."\t\t\t"."&nbsp;&nbsp;";
-            echo $itemWeight = $row["ITEM_WEIGHT"]."\t\t\t"."&nbsp;&nbsp;";    
-            echo $itemDesc = $row["ITEM_DESC"]."\t\t\t"."&nbsp;&nbsp;";
-            echo $price = $row["ITEM_PRICE"]."\t\t\t"."&nbsp;&nbsp;";
-                    
-           
-            $subtotal = $price*$itemQty;
+         echo $itemQty."\t\t\t"."&nbsp;&nbsp;";
+         echo  $itemWeight = $row["ITEM_WEIGHT"]."\t\t\t";
+         echo   $itemDesc = $row["ITEM_DESC"]."\t\t\t";
+         echo    $price = $row["ITEM_PRICE"]."\t\t\t&nbsp;";
+         
+         
+        
             
+            $subtotal = $price*$itemQty;
             $total+= $subtotal;
             echo $subtotal."<br>";
             $sql= "INSERT INTO ORDER_LINE_ITEM (ITEM_DESC, ITEM_NO, ITEM_WEIGHT_TYPE, ORDER_ID,  PRICE, QUANTITY)
             VALUES ('$itemDesc', $itemNo, '$itemWeight', $orderid,  $price, $itemQty)";
             $result = mysqli_query($db, $sql);
             
-          
+           
            $_SESSION['cart'][$itemNo]['qty']="";
         }
     }
 }
 
-echo "total:".$total;
 //update order total with actual total
 $sql= "UPDATE ORDERS SET ORDER_TOTAL = $total WHERE ORDER_ID = $orderid";
      

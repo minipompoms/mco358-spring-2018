@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;myHarvest/order.html&apos; to &apos;order.php&apos;" description="Rename resource &apos;order.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="order.html" name="order.php" stamp="1521804823317" updateReferences="true"/>
+</session>

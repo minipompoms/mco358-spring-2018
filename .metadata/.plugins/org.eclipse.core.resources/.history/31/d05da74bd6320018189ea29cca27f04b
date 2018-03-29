@@ -1,0 +1,31 @@
+<?php 
+include "connection.php";
+if (mysqli_connect_errno()) {
+    
+    echo "Could  not connect to database: Error: ".mysqli_connect_error();
+    
+    exit();
+}
+
+
+?>
+
+
+<select id="cd" name="cd">
+<?php 
+$cdquery="SELECT ITEM_NO FROM products";
+$cdresult=mysqli_query($cdquery) or die ("Query to get data from firsttable failed: ".mysql_error());
+
+while ($cdrow=mysqli_fetch_array($cdresult)) {
+    $ITEM_DESC=$cdrow["ITEM_NO"];
+   
+       echo $ITEM_DESC;    
+                
+                    
+}
+
+?>
+    
+        </select>
+
+	

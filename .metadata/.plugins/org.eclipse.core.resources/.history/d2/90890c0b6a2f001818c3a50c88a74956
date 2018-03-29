@@ -1,0 +1,12 @@
+
+<div class="topnav">
+	<a class="active" href="index.php">Home</a> <a href="login.php">My
+		Account</a> <a href="order1.php">Place an order</a><a
+		href="storeHours.php">Store Hours</a> <a href="gallery.php">Gallery</a>
+		<h1>View cart</h1> 
+<a href="order1.php?page=products">Go back to the products page.</a> 
+<form method="post" action="order1.php?page=cart"> 
+<div><a style=float:right; href='logout.php'>Logout</a></div>
+
+</div>
+

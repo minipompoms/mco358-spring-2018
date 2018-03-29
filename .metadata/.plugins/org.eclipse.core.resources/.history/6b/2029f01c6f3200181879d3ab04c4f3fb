@@ -1,0 +1,5 @@
+<?php
+include "config.php";
+
+$sql = "INSERT INTO AUTHORIZED_USERS VALUES(CUSTOMER_ID, PASSWORD, USERNAME)
+VALUES('7187828363', '456Bedford', ssrkohn@gmail.com')";
