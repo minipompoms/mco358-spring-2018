@@ -1,3 +1,7 @@
+phpMyAdmin/
+test/
+web-programming-spring18/
+.metadata/
 .cfe
 .cfs
 .si
@@ -6,6 +10,4 @@
 .fdt
 .fnm
 .xmi
-phpMyAdmin/
-test/
-web-programming-spring18/
+
