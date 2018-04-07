@@ -43,12 +43,10 @@ if (mysqli_affected_rows($db) > 0) {
 ?>
 <b>ORDER ID:&nbsp;&nbsp;</b><?php echo $orderid ?><br>
 <b>DATE:&nbsp;&nbsp;</b><?php echo $DATE ?><br>
-	<b>NAME:&nbsp;&nbsp;</b><?php echo $CUST_NAME ?><br>
-	<br>
+	<b>NAME:&nbsp;&nbsp;</b><?php echo $CUST_NAME ?><br><br>
 	<b>&nbsp;&nbsp;TEL:&nbsp;&nbsp;</b><?php echo $TEL ?><br>
 	<b>ADDRESS:&nbsp;&nbsp;</b><?php echo $ADDRESS?><br>
 	<b>&nbsp;&nbsp;</b><?php echo $CITY ?><br>
-
 	<b>&nbsp;&nbsp;</b><?php echo $STATE ?><br>
 	<b>&nbsp;&nbsp;</b><?php echo $ZIP ?><br>
 	<b>&nbsp;&nbsp;<?php echo 'QTY'."\t\t" ?></b>
@@ -60,8 +58,7 @@ if (mysqli_affected_rows($db) > 0) {
 
 foreach ($_POST['qty'] as $itemNo=>$itemQty) {
     if (! ($itemQty == 0 || $itemQty== "")) {
-        
-     
+             
         $sql = "SELECT * FROM products WHERE ITEM_NO = $itemNo";
         $result = mysqli_query($db, $sql);
         
@@ -70,10 +67,7 @@ foreach ($_POST['qty'] as $itemNo=>$itemQty) {
          echo  $itemWeight = $row["ITEM_WEIGHT"]."\t\t\t";
          echo   $itemDesc = $row["ITEM_DESC"]."\t\t\t";
          echo    $price = $row["ITEM_PRICE"]."\t\t\t&nbsp;";
-         
-         
-        
-            
+          
             $subtotal = $price*$itemQty;
             $total+= $subtotal;
             echo $subtotal."<br>";
@@ -92,35 +86,16 @@ $sql= "UPDATE ORDERS SET ORDER_TOTAL = $total WHERE ORDER_ID = $orderid";
      
 $result = mysqli_query($db, $sql);
 
-
-
-
 ?>
-
-
-
-
-
-
-
 <br>
 	<blockquote>
 		<b> Thank You For Your Order. A copy of this order has been sent to
 			your email. </b>
-	</blockquote>
-
-
-
-	<p>
+	</blockquote><p>
 		<canvas style="height: 200px;"></canvas>
-
 </body>
-<?php
-
-?>
 <?php include "footer.php";?>
 <?php
-
 function check_input($data)
 {
     $data = trim($data);

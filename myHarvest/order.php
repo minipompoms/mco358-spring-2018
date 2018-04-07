@@ -2,25 +2,14 @@
 session_start();
 include "config.php";
 include "header.php";
-
-
 ?>
 
 <?php 
-
-
-    if(isset($_GET['action']) && $_GET['action']=="add"){ 
-       
-          
-        $id=intval($_GET['id']); 
-      
-        
-        if(isset($_SESSION['cart'][$id])){ 
-              
-            $_SESSION['cart'][$id]["qty"]++;
-            
-        }else{ 
-              
+    if(isset($_GET['action']) && $_GET['action']=="add"){               
+        $id=intval($_GET['id']);        
+        if(isset($_SESSION['cart'][$id])){               
+            $_SESSION['cart'][$id]["qty"]++;            
+        }else{               
             $sql_s="SELECT * FROM products 
                 WHERE ITEM_NO={$id}"; 
             $query_s=mysqli_query($db,$sql_s); 
@@ -30,23 +19,14 @@ include "header.php";
                 $_SESSION['cart'][$row_s['ITEM_NO']]=array( 
                         "qty" => 1, 
                         "ITEM_PRICE" => $row_s['ITEM_PRICE'] 
-                    ); 
-                  
-                  
+                    );                                     
             }else{ 
                   
-                $message="invalid item"; 
-                  
-            } 
-              
-        } 
-          
-    } 
-  
+                $message="invalid item";                   
+            }              
+        }           
+    }   
 ?> 
-<?php 
-
-?>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="styles.css" type="text/css" />
@@ -55,10 +35,7 @@ include "header.php";
 </head>
 <body>
 
-	<form action="submit.php" method="post">
-		
-		<br>
-	
+	<form action="submit.php" method="post"><br>	
 		<p class="c">Order Form</p>
 		<div style="text-align: left">
 			<div class="sidebar" style="width: 10%">
@@ -79,7 +56,6 @@ include "header.php";
  <div id="container">  
  
  <div id="viewCart"><strong class="center">ORDER SUMMARY</strong>
- 
 				
 <?php  
 
@@ -89,12 +65,8 @@ include "header.php";
           
         foreach($_SESSION['cart'] as $id => $value) { 
             $sql.=$id.","; 
-        } 
-          
-     
-        $sql = "SELECT * FROM products";
-       
-        
+        }                
+        $sql = "SELECT * FROM products";       
         $query=mysqli_query($db,$sql); 
         while($row=mysqli_fetch_array($query)){ 
               
@@ -149,7 +121,6 @@ include "header.php";
 					
   <?php 
   
-  
     $sql = "SELECT * FROM products";  
     $result = mysqli_query($db,$sql);
    
@@ -157,20 +128,17 @@ include "header.php";
         ?>
       		
         		<tr><td><input type="text" name="qty[<?php echo $row['ITEM_NO'] ?>]" size="4" value="<?php echo $_SESSION['cart'][$row['ITEM_NO']]['qty'] ?>" /></td>
-       			 <td><?php $item_no = $row['ITEM_NO']; echo $item_no."<br />";  ?></td><td>
-        		              			
+       			 <td><?php $item_no = $row['ITEM_NO']; echo $item_no."<br />";  ?></td><td>      		              			
                	<td><?php $item_desc = $row['ITEM_DESC']; echo $item_desc."<br/>";  ?></td><td>
                 <td><?php $weight = $row['ITEM_WEIGHT']; echo $weight."<br />";?></td> <td>
                 <td><?php $price = $row['ITEM_PRICE']; echo $price ?></td><td>
                 
                 <td><a href="order.php?page=cart&action=add&id=<?php echo $row['ITEM_NO'] ?>"><img src="cart.png"></a> </td> 
                 </tr>
-                <?php      }
-              
-                 
-            ?>
-          
- 		
+                <?php     
+    }
+                               
+            ?>	
 						</table>
 					</div>
 					<br>
@@ -190,21 +158,13 @@ include "header.php";
 						name="delivery" value="✓ Delivery" /> <br>
 					<br>
 					<textarea name="message" rows="3" cols="50"> Delivery Instructions:
-					
-					
-					
-					
-					
-					
+				
 					</textarea>
 					<p style="text-align: center;">
 					
 						<input type="submit" name="submit_button" value="Review Order" />
-					</p>
+					</p>				
 				
-					
-				
-<select name = "item_list" size= 4 ></select>
 
 				</fieldset>
 			</div>

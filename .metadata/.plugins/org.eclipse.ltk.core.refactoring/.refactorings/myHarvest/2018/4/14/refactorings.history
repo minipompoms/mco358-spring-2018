@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;myHarvest/contactUs&apos; to &apos;contactUs.php&apos;" description="Rename resource &apos;contactUs&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="contactUs" name="contactUs.php" stamp="1523038577307" updateReferences="true"/>
+</session>

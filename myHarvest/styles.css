@@ -93,7 +93,6 @@ footer {
 
 .submit label {
 	color: #a2db9c;
-	
 }
 
 .center {
@@ -170,32 +169,34 @@ textarea {
 	text-align: right;
 	letter-spacing: -1px;
 }
-   #viewCart { 
-        width: 10%; 
-        float: right; 
-        color:#0c2a0f;
-    }
-    #container { 
-  
 
-    color:#0c2a0f;
-} 
+#viewCart {
+	width: 10%;
+	float: right;
+	color: #0c2a0f;
+}
 
- table {
-    border-collapse: collapse; 
+#container {
+	color: #0c2a0f;
+}
+
+table {
+	border-collapse: collapse;
 }
 
 th, td {
-    padding: 3px;
-    text-align:left;
-  
-}
-th {
-      
-    font-size: 11px;
-    color: #318131; 
+	padding: 3px;
+	text-align: left;
 }
 
-table, thead, tbody, th, td, tr { 
-	 	
-	}
+th {
+	font-size: 11px;
+	color: #318131;
+}
+.message {
+	
+	color: #0c2a0f;
+	background-color: #e6ffee;
+	display: inline; float: none;
+	
+}

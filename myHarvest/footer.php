@@ -1,12 +1,8 @@
 
 <footer>
-<br><a>
-		<b>
-			Contact Us:</b></a>
-			<br>
-		
-	
-			<strong>email: info@myharvest.ga | phone:
+<br>
+		<strong><a href= "contactUs.php"><b>Contact Us:</b></a>
+			| phone:
 			718-383-4333 | address: 5 Heyward St. Brooklyn, NY
 			11211</strong> <br> 
 		<br>	

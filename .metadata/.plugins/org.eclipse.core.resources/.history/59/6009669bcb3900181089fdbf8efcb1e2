@@ -1,0 +1,24 @@
+<?php 
+session_start();
+include "header.php";
+?>
+
+<html>
+<link rel="stylesheet" href="styles.css" type="text/css" />
+<head>
+<title>We appreciate your feedback!</title>
+</head>
+<body>
+</body>
+<?php
+$name = $_POST['name'];
+$email = $_POST['email'];
+$message = $_POST['message'];
+$formcontent="From: $name \n Message: $message";
+$recipient = "emailaddress@here.com";
+$subject = "Contact Form";
+$mailheader = "From: $email \r\n";
+mail($recipient, $subject, $formcontent, $mailheader) or die("Error!");
+echo "Thank You!";
+include "footer.php";
+?>
