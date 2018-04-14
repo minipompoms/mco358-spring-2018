@@ -44,6 +44,5 @@ if (!$mail->send()) {
 <body>
 <p><canvas style=height:150px;></canvas>
 
-
 </body>
 <?php include "footer.php"; ?>

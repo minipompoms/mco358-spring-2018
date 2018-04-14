@@ -1,4 +1,3 @@
-
 <footer>
 <br>
 		<strong><a href= "contactUs.php"><b>Contact Us:</b></a>

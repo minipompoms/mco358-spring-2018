@@ -2,7 +2,6 @@
 session_start();
 include "header.php";
 include "config.php";
-
 ?>
 <?php
 if (isset($_POST['submit'], $_POST['cust_name'])) {
