@@ -17,7 +17,7 @@ $mail->SMTPAuth = true;
 $mail->Host = 'smtp.gmail.com';
 $mail->Port = 465;
 $mail->Username = 'paigek.apple@gmail.com';
-$mail->Password = 'herringT!ger';
+$mail->Password = 
 $mail->setFrom = 'paigek.apple@gmail.com';
 $mail->addAddress('paigek.apple@gmail.com');
 $mail->Subject = $subject;
